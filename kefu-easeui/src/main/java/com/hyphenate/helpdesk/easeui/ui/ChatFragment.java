@@ -745,7 +745,7 @@ public class ChatFragment extends BaseFragment implements ChatManager.MessageLis
             } else {
                 intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getContext().getApplicationContext(),
-                        getContext().getPackageName() +  ".fileProvider", cameraFile));
+                        getContext().getPackageName() +  ".fileprovider", cameraFile));
             }
             startActivityForResult(intent, REQUEST_CODE_CAMERA);
         }catch (Exception e){
