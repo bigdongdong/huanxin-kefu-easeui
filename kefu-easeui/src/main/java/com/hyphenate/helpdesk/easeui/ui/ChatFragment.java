@@ -21,6 +21,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.text.ClipboardManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -743,7 +744,8 @@ public class ChatFragment extends BaseFragment implements ChatManager.MessageLis
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(cameraFile));
             } else {
                 intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getContext().getApplicationContext(), getContext().getPackageName() +  ".fileProvider", cameraFile));
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getContext().getApplicationContext(),
+                        getContext().getPackageName() +  ".fileProvider", cameraFile));
             }
             startActivityForResult(intent, REQUEST_CODE_CAMERA);
         }catch (Exception e){
